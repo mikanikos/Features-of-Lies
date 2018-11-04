@@ -16,13 +16,17 @@ than interviews or speeches?
 
 
 # Dataset
-This analysis will use the Liar data set because it is imperative to use a data set that already has already been classified by truthfulness since all of our research questions relate to truthfulness of claims. Importantly, this data set contains close to uniform representation of statements from all areas of the truth spectrum, meaning that we are not simply analyzing lies, but also that we have examples of truthful statements as well. This is important, because for many of the features we wish to analyze, we will want to make some comparison between a feature's prominence in a lie versus its prominence overall.
+This analysis will use the Liar data set because it is imperative to use a data set that has already been classified by truthfulness since all of our research questions relate to truthfulness of claims. Importantly, this data set contains close to uniform representation of statements from all areas of the truth spectrum, meaning that we are not simply analyzing lies, but also that we have examples of truthful statements as well. This is important, because for many of the features we wish to analyze, we will want to make some comparison between a feature's prominence in a lie versus its prominence overall.
+
+The data set seems to contain both individual statements as said by a public figure as well as circulating statements such common Facebook reposts.
 
 The data set contains many features we are immediately interested in, such as speaker and context. Much of the initial phases of our project will involve using these features to construct new features to analyze.
 
-For named speakers, such as politicians, we believe we can cross-reference with their Wikipedia entries in order to find out their political affiliation and their political position. This would allow us to compare political affiliations or different political positions. For contexts, we believe we can group certain contexts into categories, such as live speeches, social media statements, interviews, etc.
+For named speakers, we believe we can cross-reference with their Wikipedia entries in order to find out other factors such as age, political affiliation, professions, level of education. This cross-referencing will allow us to look at our data set grouped by other potentially interesting features. 
 
-We also think that we can find ways use the statement itself to construct interesting features such as sentiment and topic. Currently, we plan to use NLTK for sentiment analysis, but will need to do research to find libraries or implementations that may help us categorize statements by their topic (such as birth control, immigration, healthcare, etc.)
+We also believe we can classify certain contexts into categories, such as live speeches, social media statements, interviews, etc.
+
+We think that we can find ways use the statement itself to construct interesting features such as sentiment and topic. Currently, we plan to use NLTK for sentiment analysis, but will need to do research to find libraries or implementations that may help us categorize statements by their topic (such as birth control, immigration, healthcare, etc.)
 
 
 # A list of internal milestones up until project milestone 2
@@ -31,7 +35,7 @@ Gather data – load the dataset
 
 Group vs. individual augmentation – categorize each statement as to whether it has an identified individual source (such a politician or news anchor) or whether it has an undefined or group source (such as a viral Facebook post or Tweet)
 
-Affiliation augmentation – cross-reference to add political affiliation/position for statements where the speaker is an individual; requires web querying and html parsing
+Speaker features augmentation – decide on a set of available relevant features such as age or political affiliation, and cross-reference to add these features to statements where the speaker is an individual; requires web querying and html parsing (Wikipedia, Politifacts in mind)
 
 Context grouping – find a way to categorize the contexts by useful groupings, such as TV, online, live, interview, etc.
 
