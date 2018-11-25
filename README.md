@@ -1,94 +1,44 @@
 # Features of Lies
 
-# Abstract
-In the past years, we have become more and more bombarded by
-information from multiple sources thanks to the rise of the Internet. The huge
-amount of information we have at our fingertips and the freedom of the online
-world comes unfortunately with the downside of corrupted information,
-misinterpretations or plain lies. We believe that being able to tell the truth
-from a lie has become a key ability. Using the Liar dataset, we plan to
-identify key features of lies and measure their spread in the online world,
-therefore making an analysis of the most reliable online medium, and on markers
-of untruthful statements.
+Our analysis is focused on the Liar dataset, a dataset with over 10000
+statements with labels indicating their truthfulness.
 
-# Research questions
-- Which is the more reliable, Facebook or Twitter?
+We have explored the dataset in Exploration.ipynb, doing an analysis of the
+statements based on their feature, trying to get some insight into possible
+correlations with the truth classification and to better understand the
+dataset.
 
-- Which are the topics that tend to have the most lies?
+# Results
 
-- What are features of lies? Is an affirmative statement more or less likely to
-  be a lie? Are feelings somehow involved?
+While performing this analysis, we have realized that there is not enough data
+to achieve the level of generality we hoped for in the original proposal.
+Therefore, our focus has shifted towards a feature analysis of the lies, as
+well as the design of classifiers for statements from politifacts.
 
-- Do public figures lie more on their social media accounts than interviews or
-  speeches?
+Note that the feature analysis we performed might not generalize, since the
+dataset is relatively small. However, the original publishers of the dataset
+have obtained promising results by training various machine learning models,
+which is also our goal.
 
+# Augmentation
 
-# Dataset
-Our analysis will start with the Liar dataset, which we found to be an
-invaluable resource for looking at patterns behind untruthful statements.
-Moreover, this dataset provides a control group of statements that have been
-classified as being true, allowing us to compare the features of a lie with
-the ones of a truth. In total, we have about 12000 statements that we can use
-to gain some insight into how people lie.
+We have collected more data about the statements using the politifacts API.
+As mentioned above, we plan to use this API to do generalize our analysis from
+the Liar dataset to other political statements. To this end, we have followed
+our inital plan to perform feature augmentation based on sentiment analysis. We
+have experimented with two approaches: the python nltk library and google
+cloud. From our analysis, the former does not seem to produce very reliable
+metrics as is, but has a Bayes classifier that we plan to train on this
+dataset. On the other hand, the latter has consistently provided accurate
+metrics in our experiments and we plan to use it to augment the dataset.
 
-The data set contains many features we are immediately interested in, such as
-speaker and context. One important part of our project will involve
-applying natural language processing techniques in order to find new
-features that we might be interested in, such as sentiment analysis or to
-perform a classification of the statements based on their topic.
+These experiments can be found in SentimentAnalysis.ipynb.
 
-For named speakers, we believe we can cross-reference with Wikipedia to gather
-more information about the person. Using this information, we might be able
-to look for trends in trustworthiness of people based on their political
-affiliation, origin, career or any other personal information.
+# Future plans
 
-We also think that we can find ways use the statement itself to construct
-interesting features such as sentiment and topic. Currently, we plan to use
-NLTK for sentiment analysis, but will need to do research to find libraries or
-implementations that may help us categorize statements by their topic (such as
-birth control, immigration, healthcare, etc.)
-
-Last but not least, we consider using the Twitter dataset and using the
-insight we gained from the Liar dataset, perfom an analysis on the truthfulness
-of tweets and look for any correlation between their spread and truthfulness.
-
-
-
-# A list of internal milestones up until project milestone 2
-
-## Week 1 - Gather information: augment the Liar dataset
-
-- collect information about the source and type of the statement. We need to
-  aggregate the information about the context available in the dataset in
-  a hierarchy so we can perform both general queries (e.g. interview), or very
-  specific queries (e.g. presidential announcement speech).
-
-- categorize each statement as to whether it has an identified individual
-  source (such a politician or news anchor) or whether it has an undefined
-  or group source (such as a viral Facebook post or Tweet)
-
-- cross-reference with Wikipedia/other soruces to add personal information
-  (e.g. political affiliation) for statements where the source is an individual.
-
-
-## Week 2 - NLP: continue looking for data
-
-- add sentiment information to each statement. Requires NLP libraries.
-
-- label each statement by whether it is affirmative or negative; might require
-NLP, but it may be as simple as POS tagging as some tag sets may
-already differentiate between negated verbs.
-
-- find the semantic topic of each statement. This will require some research
-as to the best method, but it might be sufficient to manually create topic
-categories and associate categories with key words or to find how well are they
-represented in each statement.
-
-## Week 3 - Analysis
-
-- start using the features we have augmented to perform queries
-related to our research questions
-
-- construct a plan as to the appropriate way to illustrate our findings
-
-# Questions for TAs
+In the following weeks, we will use the insight we gained in the dataset to
+train machine learning models in order to analyse the statements from
+politifacts. We plan to use their API to analyse political statements and do
+a comparison between sources. This is related to our intial goal, of finding
+the trustworthiness of various media sources, but limited in scope to political
+statements.
