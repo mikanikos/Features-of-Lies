@@ -39,6 +39,6 @@ These experiments can be found in SentimentAnalysis.ipynb.
 In the following weeks, we will use the insight we gained in the dataset to
 train machine learning models in order to analyse the statements from
 politifacts. We plan to use their API to analyse political statements and do
-a comparison between sources. This is related to our intial goal, of finding
+an analysis on them. This is related to our intial goal, of finding
 the trustworthiness of various media sources, but limited in scope to political
-statements.
+statements and their source.
