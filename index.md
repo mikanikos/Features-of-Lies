@@ -49,3 +49,47 @@ is enough data for an analysis of the lies in the US politics from the past
 decade.
 
 
+#### The political language
+
+Since we are dealing with natural language, we decided to start our analysis
+by examining the vocabulary present in the dataset. Since the statements share
+the same language and the same field, we expect a similar word distribution
+over the classes, but we are interested if some words tend to have a higher
+usage in a particular class.
+
+This is a relatively small dataset, with a body of almost 190 000 words.
+However, with and almost 12 000 unique tokens (we count 'home' and 'homes'
+as 2 different tokens), has a variate vocabulary, many words appearing just
+once or twice. For comparison, a publication by Laufer et al, 2010, indicates
+that understanding 8000 word families leads to a 98% vocabulary coverage in
+average English spoken discourse, with as little as 3000 word families (5000
+lexical items) necessary for a minimal reading comprehension (Laufer (1992),
+Adolphs (2003)). Note that these publications talk about word families and
+lexical items, while we count tokens. Still, it provides a good intuition of
+the size of the vocabulary represented in the dataset.
+
+![Wordcloud all](assets/wordcloud_all.png)
+
+Looking at the most common words in the dataset, we can observe the main topics
+of discussion in the politics at the time, such as health care or Barack
+Obama, as well as some features of the political speech, such as the prevalence
+of percents or years. Also, topics of interests for politics such as bill,
+vote or government are present amongst the most used words in this dataset.
+
+Although the dataset has 6 levels of truth, we take a look at the language
+used in true and false statements in general, looking for differences in word
+usage.
+
+![Wordcloud truefalse](assets/wordcloud_truefalse.png)
+
+We can make a few remarks on the words usage. The word 'million' is more used
+in true statements, while the word 'billion' is more used in false statements.
+This can suggest a tendency of exaggeration. Also, 'percent' tends to be less
+used in false statements, possibly indicating a tendency in the lack of
+precision. 'Health care', 'obamacare' and 'Barack Obama' are also more present
+in untruthful statements. This is an interesting fact - since a large part of
+the dataset overlaps with the Barack Obama's presidency, health care being
+a controversial topic at the time.
+
+
+
