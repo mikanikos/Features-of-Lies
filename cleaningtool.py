@@ -33,6 +33,7 @@ def clean_df(df):
     Returns - copy of the dataframe with jobs and contexts features categorized in more consistent ways
     '''
     df = clean_jobs(df)   
+    df = clean_contexts(df)   
     return df
 
 ## Function to clean the jobs field
@@ -101,5 +102,86 @@ def clean_jobs(df):
     arr[arr=='Former'] = df['job'][arr=='Former']
     arr[arr=='Foreign'] = df['job'][arr=='Foreign']
     result['job'] = arr
+    
+    return result
+
+## Function to clean the contexts field
+## Cleaning was manually determined
+def clean_contexts(df):
+    ''' NOTE: Use clean_df instead of clean_contexts - clean_contexts is a helper for clean_df
+    Cleans the contexts of a dataframe.
+    Params - df : dataframe to clean
+    Returns - Cleaned copy of the dataframe
+    '''
+    ## Initialize result df and job array
+    result = df.copy()
+    arr = result['context']
+
+    ## Group responses to other entries
+    arr = replace(arr, 'response', 'Response')
+    
+    ## Group social media entries
+    arr = replace(arr, 'tweet', 'Tweet')
+    arr = replace(arr, 'twitter', 'Tweet')
+    arr = replace(arr, 'e-?mail', 'Email')
+    arr = replace(arr, 'blog', 'Blog Post')
+    arr = replace(arr, 'meme', 'Meme')
+    arr = replace(arr, 'facebook', 'Facebook Post')
+    arr = replace(arr, 'instag', 'Instagram')
+    
+    ## Solicitations
+    arr = replace(arr, '\\bmail', 'Mailer')
+    arr = replace(arr, 'robocall', 'Robocall')
+    arr = replace(arr, 'automated', 'Robocall')
+    arr = replace(arr, 'fl(y|i)er', 'Flier')
+    arr = replace(arr, 'newsletter', 'Flier')
+
+    ## Spoken contexts
+    arr = replace(arr, 'interview', 'Interview')
+    arr = replace(arr, 'address', 'Speech')
+    arr = replace(arr, 'speech', 'Speech')
+    arr = replace(arr, 'debate', 'Debate')
+    arr = replace(arr, 'hearing', 'Hearing')
+    
+    ## News contexts
+    arr = replace(arr, 'opinion', 'Opinion Piece/Editorial')
+    arr = replace(arr, 'column', 'Opinion Piece/Editorial')
+    arr = replace(arr, 'commentary', 'Opinion Piece/Editorial')
+    arr = replace(arr, 'op(-| )?ed', 'Opinion Piece/Editorial')
+    arr = replace(arr, 'editorial', 'Opinion Piece/Editorial')
+    arr = replace(arr, 'release', 'News/Press Release')
+    arr = replace(arr, 'conference', 'News/Press Conference')
+    arr = replace(arr, 'cbs|abc|msn|cnn|nbc|fox|npr', 'News Program')
+    arr = replace(arr, 'news', 'News Program')
+    arr = replace(arr, 'article', "Article")
+    
+    ## Broadcast contexts
+    arr = replace(arr, 'ad\\b|v', "Ad") ## Captures advertisement or ad
+    arr = replace(arr, 'commercial', "Ad")
+    arr = replace(arr, '(radio|talk).*show', "Radio/Talk Show")
+    arr = replace(arr, 'broadcast|episode', "Radio/Talk Show")
+    arr = replace(arr, 'comment on', "Radio/Talk Show")
+    arr = replace(arr, 'radio', "Radio/Talk Show")
+    
+    ## Personal content
+    arr = replace(arr, '\\bbook', "Book")
+    arr = replace(arr, 'comment|quote', "Comment")
+    arr = replace(arr, 'to reporter', "Comment")
+    arr = replace(arr, 'statement', "Statement")
+    arr = replace(arr, 'rally', "Rally")
+    arr = replace(arr, 'letter', "Letter")
+    arr = replace(arr, 'web ?(s|p)', 'Website') ## Capture variants of website and web post
+    
+    ## Remove opening determiners and ending periods
+    ## Trim whitespace
+    det = np.vectorize(lambda x: re.sub("^an? (.*)\.$", r"\1", str(x)))
+    det_stop = np.vectorize(lambda x: re.sub("^an? (.*)$", r"\1", str(x)))
+    trim = np.vectorize(lambda x: str.strip(str(x)))
+    arr = trim(arr)
+    arr = det(arr)
+    arr = det_stop(arr)
+    arr = trim(arr)
+    
+    result['context'] = arr
     
     return result
