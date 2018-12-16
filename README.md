@@ -97,9 +97,9 @@ Paul – project proposal, word frequency analysis, sentiment analysis, polished
 
 # References
 
-The "Liar, Liar Pants on Fire" dataset used was provided by William Wang at: https://arxiv.org/abs/1705.00648
+- The "Liar, Liar Pants on Fire" dataset used was provided by William Wang at: https://arxiv.org/abs/1705.00648
 
 The following tools were throughout the project:
-https://python-graph-gallery.com/ - For visualization demonstrations and ideas
-http://evoq-eval.siam.org/Portals/0/Publications/SIURO/Vol1_Issue1/Testing_for_the_Benford_Property.pdf?ver=2018-03-30-130233-050 - Paper - For testing for the Benford Property within our data, including methods of quantifying well-fittedness
-https://stackoverflow.com/questions/493174/is-there-a-way-to-convert-number-words-to-integers - Solution for converting words to numbers proposed by user 'Adhan Umer' was used as part of our routines.
+- https://python-graph-gallery.com/ - For visualization demonstrations and ideas
+- http://evoq-eval.siam.org/Portals/0/Publications/SIURO/Vol1_Issue1/Testing_for_the_Benford_Property.pdf?ver=2018-03-30-130233-050 - - Paper - For testing for the Benford Property within our data, including methods of quantifying well-fittedness
+- https://stackoverflow.com/questions/493174/is-there-a-way-to-convert-number-words-to-integers - Solution for converting words to numbers proposed by user 'Adhan Umer' was used as part of our routines.
