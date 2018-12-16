@@ -91,9 +91,9 @@ statements and their source.
 
 # Distribution of Workload
 
-Andrea – initial data exploration, machine learning models, querying Politifacts, analysis of headlines, preparation of presentation
-Marshall – project proposal, initial data exploration, data cleaning, analysis of numeric statements, preparation of presentation
-Paul – project proposal, word frequency analysis, sentiment analysis, polished visualization, construction of data story, preparation of presentation
+- Andrea – initial data exploration, machine learning models, querying Politifacts, analysis of headlines, preparation of presentation
+- Marshall – project proposal, initial data exploration, data cleaning, analysis of numeric statements, preparation of presentation
+- Paul – project proposal, word frequency analysis, sentiment analysis, polished visualization, construction of data story, preparation of presentation
 
 # References
 
