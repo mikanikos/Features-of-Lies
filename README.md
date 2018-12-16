@@ -1,5 +1,34 @@
 # Features of Lies
 
+# Data Story
+
+https://paul92.github.io/ADA_Project/
+
+# Abstract
+
+In the past years, we have become more and more bombarded by
+information from multiple sources thanks to the rise of the Internet. The huge
+amount of information we have at our fingertips and the freedom of the online
+world comes unfortunately with the downside of corrupted information,
+misinterpretations or plain lies. We believe that being able to tell the truth
+from a lie has become a key ability. Using the Liar dataset, we plan to
+identify key features of lies and measure their spread in the online world,
+therefore making an analysis of the most reliable online medium, and on markers
+of untruthful statements.
+
+# Research Question
+
+- Which statements within the dataset are most prevalent for determining truthfulness.
+
+- Which topics contain the most lies?
+
+- Which speakers lie the most?
+
+- Do public figures lie more on their social media accounts than interviews or
+  speeches?
+  
+- Are there underlying lexical features to lies? Is the vocabulary the same?
+
 Our analysis is focused on the Liar dataset, a dataset with over 10000
 statements with labels indicating their truthfulness.
 
@@ -56,10 +85,25 @@ statements and their source.
 
 - We want to improve our predictive model hopefully by accounting for more underlying features. We also want to see if this model is at all generalizable, so we want to take some reference some other fake news datasets and see if we can make predictions on those datasets with our model (will require a lot of cleaning to fit our model format). 
 
--If we find that our model is generalizable in this way, then we will analyze which features are important in our model prediction to create our data story. 
+- If we find that our model is generalizable in this way, then we will analyze which features are important in our model prediction to create our data story. 
 
--If these results are not generalizable, we would like to isolate specific speakers, topics, or pairs of speakers to see if we can find some underlying patterns to make a convincing data story that may not be in the form of a general model. In doing this, we want to externalize from our dataset and see if our findings are applicable for other statements of this type.
+- If these results are not generalizable, we would like to isolate specific speakers, topics, or pairs of speakers to see if we can find some underlying patterns to make a convincing data story that may not be in the form of a general model. In doing this, we want to externalize from our dataset and see if our findings are applicable for other statements of this type.
 
 ## Week 3 – Data stories and visualizations
 
 - Based upon our week 2 findings, we want to construct some good visuals and a compelling data story. We do not yet know if our data story will be about general findings or if they will require a case-study approach relating to specific speakers and/or subjects.
+
+# Distribution of Workload
+
+- Andrea – initial data exploration, machine learning models, querying Politifacts, analysis of headlines, preparation of presentation
+- Marshall – project proposal, initial data exploration, data cleaning, analysis of numeric statements, preparation of presentation
+- Paul – project proposal, word frequency analysis, sentiment analysis, polished visualization, construction of data story, preparation of presentation
+
+# References
+
+- The "Liar, Liar Pants on Fire" dataset used was provided by William Wang at: https://arxiv.org/abs/1705.00648
+
+The following tools were throughout the project:
+- https://python-graph-gallery.com/ - For visualization demonstrations and ideas
+- http://evoq-eval.siam.org/Portals/0/Publications/SIURO/Vol1_Issue1/Testing_for_the_Benford_Property.pdf?ver=2018-03-30-130233-050 - - Paper - For testing for the Benford Property within our data, including methods of quantifying well-fittedness
+- https://stackoverflow.com/questions/493174/is-there-a-way-to-convert-number-words-to-integers - Solution for converting words to numbers proposed by user 'Adhan Umer' was used as part of our routines.
