@@ -24,6 +24,8 @@ from nltk.corpus import stopwords
 from nltk import *
 from textblob import TextBlob, Word
 
+from cleaningtool import *
+
 
 def load_data(path):
     columns = ["ID", "label", "statement", "subject", "speaker", "job", "state", "party", "barely_true_cts",
@@ -183,6 +185,8 @@ def train_SVM(train_data, train_labels, test_data, test_labels):
 
 
 def preprocess_data(data):
+    
+    data = clean_df(data)
     
     # Manually cleaning state field
     data['state'] = data['state'].apply(lambda x: "Washington" if x == "Washington, D.C." or x == "Washington, D.C. " or x == "Washington state" or x == "Washington DC" or x == "Washington D.C." else x)
