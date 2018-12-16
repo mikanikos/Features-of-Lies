@@ -18,7 +18,7 @@ of untruthful statements.
 
 # Research Question
 
-- Which statements within the dataset are most prevalent for determining truthfulness.
+- Which statements within the dataset are most prevalent for determining truthfulness?
 
 - Which topics contain the most lies?
 
@@ -32,10 +32,10 @@ of untruthful statements.
 Our analysis is focused on the Liar dataset, a dataset with over 10000
 statements with labels indicating their truthfulness.
 
-We have explored the dataset in Exploration.ipynb, doing an analysis of the
+We have explored the dataset in Data_Analysis.ipynb, doing an analysis both of the meta-data and the text of the
 statements based on their feature, trying to get some insight into possible
 correlations with the truth classification and to better understand the
-dataset.
+dataset. We also trained different classifiers to validate our analysis and discover more relevent aspects of the statements.  
 
 # Results
 
@@ -47,28 +47,15 @@ well as the design of classifiers for statements from politifacts.
 Note that the feature analysis we performed might not generalize, since the
 dataset is relatively small. However, the original publishers of the dataset
 have obtained promising results by training various machine learning models,
-which is also our goal.
-
-# Augmentation
+which has also been our goal.
 
 We have collected more data about the statements using the politifacts API.
-As mentioned above, we plan to use this API to do generalize our analysis from
-the Liar dataset to other political statements. To this end, we have followed
-our inital plan to perform feature augmentation based on sentiment analysis. We
-have experimented with two approaches: the python nltk library and google
-cloud. From our analysis, the former does not seem to produce very reliable
-metrics as is, but has a Bayes classifier that we plan to train on this
-dataset. On the other hand, the latter has consistently provided accurate
-metrics in our experiments and we plan to use it to augment the dataset.
+As mentioned above, we used this API to do generalize our analysis from
+the Liar dataset to other political statements. We also performed a sentiment analysis on the statements and analyzed several other aspects such as the statements that contain numbers and the words frequency distribution.
 
-These experiments can be found in SentimentAnalysis.ipynb.
-
-# Future plans
-
-In the following weeks, we will use the insight we gained in the dataset to
+We also trained different classifiers not only for getting a good model but above all for better focusing on the most informative features of the lies in order to validate our results and get more useful insights. Therefore we used the insight we gained in the dataset to
 train machine learning models in order to analyse the statements from
-politifacts. We plan to use their API to analyse political statements and do
-an analysis on them. This is related to our intial goal, of finding
+politifacts. This is related to our intial goal, of finding
 the trustworthiness of various media sources, but limited in scope to political
 statements and their source.
 
