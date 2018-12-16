@@ -72,27 +72,6 @@ an analysis on them. This is related to our intial goal, of finding
 the trustworthiness of various media sources, but limited in scope to political
 statements and their source.
 
-# A list of internal milestones up until project milestone 3
-
-## Week 1 – Augmentation and statement processing: 
-
-- Until this point, most of the features we have analyzed have been within the categorical features of the dataset. We will expand this by accounting for the date of statements as well as the best classification we can make for their sentiments. We have already implemented some sentiment classifers, we now wish to see how they can influence our model.
-
-- We will also look for other relevant features to query from the json files hosted on Politifacts.
-
-
-## Week 2 – Model improvement, quantify generalizability to inspire data story: 
-
-- We want to improve our predictive model hopefully by accounting for more underlying features. We also want to see if this model is at all generalizable, so we want to take some reference some other fake news datasets and see if we can make predictions on those datasets with our model (will require a lot of cleaning to fit our model format). 
-
-- If we find that our model is generalizable in this way, then we will analyze which features are important in our model prediction to create our data story. 
-
-- If these results are not generalizable, we would like to isolate specific speakers, topics, or pairs of speakers to see if we can find some underlying patterns to make a convincing data story that may not be in the form of a general model. In doing this, we want to externalize from our dataset and see if our findings are applicable for other statements of this type.
-
-## Week 3 – Data stories and visualizations
-
-- Based upon our week 2 findings, we want to construct some good visuals and a compelling data story. We do not yet know if our data story will be about general findings or if they will require a case-study approach relating to specific speakers and/or subjects.
-
 # Distribution of Workload
 
 - Andrea – initial data exploration, machine learning models, querying Politifacts, analysis of headlines, preparation of presentation
