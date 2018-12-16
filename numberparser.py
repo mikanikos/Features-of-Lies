@@ -136,17 +136,26 @@ def leading_digits(df):
     Params - df : Dataframe with a 'statement' column to parse
     Returns - dictionary that maps leading digits to their number of occurences
     '''
+    number_statement_list = get_nums_from_dataframe(df)
+
+    nums = get_all_numbers(number_statement_list)
+    digits = np.array(list(map(lambda x: int(str(x)[0]), nums)))
+    result = {"total":len(digits)}
+    for i in range(1,10):
+        result[i] = len(digits[digits==i])
+    return result
+
+def get_nums_from_dataframe(df):
+    ''' Creates a list that has an entry for each statement with a list of numbers mentioned within that statement.
+    Params - df : Dataframe with a 'statement' column to parse
+    Returns - List of of all numbers mentioned for each statement
+    '''
     statements = df['statement']
     statements = list(map(format_clean, statements))
     statements = list(map(text2int, statements))
 
     parsed = list(map(lambda x: nltk.pos_tag(nltk.tokenize.word_tokenize(x)), statements))
 
-    num_mask = list(map(lambda x: numbers_contained(x), parsed))
-
-    nums = get_all_numbers(num_mask)
-    digits = np.array(list(map(lambda x: int(str(x)[0]), nums)))
-    result = {"total":len(digits)}
-    for i in range(1,10):
-        result[i] = len(digits[digits==i])
-    return result
+    number_statement_list = list(map(lambda x: numbers_contained(x), parsed))
+    
+    return number_statement_list
